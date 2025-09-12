@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  gfi-php:
+    image: php:8.2-apache
+    container_name: gfi-php
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html/
+    depends_on:
+      - gfi-mysql
+
+  gfi-mysql:
+    image: mysql:8.0
+    container_name: gfi-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: gfi_database
+      MYSQL_USER: user-gfi
+      MYSQL_PASSWORD: "88423313"
+      MYSQL_ROOT_PASSWORD: "root_password_segura"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: gfi-phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: gfi-mysql
+      MYSQL_ROOT_PASSWORD: "root_password_segura"
+    depends_on:
+      - gfi-mysql
+
+volumes:
+  mysql-data:
