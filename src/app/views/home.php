@@ -23,7 +23,7 @@
         <div class="buttons">
           <button>Acesso Funcionário</button>
           <button>Acesso Cliente</button>
-          <button>Acesso Adm</button>
+          <a href="/admin/login" class="botao-acesso">Acesso Adm</a>
         </div>
       </div>
     </div>
