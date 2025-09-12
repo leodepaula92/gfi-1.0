@@ -1,19 +1,18 @@
 <?php
-// Inicia a sessão em todas as páginas para o controle de login
+// Inicia a sessão em todas as páginas para o controlo de login
 session_start();
 
-// Pega a URL acessada e a limpa para o roteamento
+// Obtém a URL acedida e limpa a string para o roteamento
 $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
 // --- CARREGAMENTO DOS CONTROLLERS ---
-// Nota: Garanta que sua pasta se chama "Controllers" com 'C' maiúsculo.
+// Caminhos editados para usar letras minúsculas, conforme solicitado
 require_once __DIR__ . '/app/controllers/HomeController.php';
 require_once __DIR__ . '/app/controllers/admin/AuthController.php';
 require_once __DIR__ . '/app/controllers/admin/DashboardController.php';
 require_once __DIR__ . '/app/controllers/admin/UserController.php';
 
 // --- SISTEMA DE ROTAS ---
-// O switch direciona a requisição para o controller e método corretos
 switch ($request_uri) {
     // Rota da Página Inicial
     case '':
@@ -52,7 +51,7 @@ switch ($request_uri) {
     // --- ROTA PADRÃO (PÁGINA NÃO ENCONTRADA) ---
     default:
         http_response_code(404);
-        // Opcional: Crie um arquivo em /app/views/404.php para uma página de erro bonita
         echo "<h1>404 - Página não encontrada</h1>";
         break;
 }
+
