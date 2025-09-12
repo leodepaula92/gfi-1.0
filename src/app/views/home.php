@@ -17,7 +17,7 @@
 
     <div class="content">
       <div class="left">
-        <img src="/public/images/logo2.png" alt="Logo GFI" width="250" height="250">
+        <img src="/public/img/logo2.png" alt="Logo GFI" width="250" height="250">
       </div>
       <div class="right">
         <div class="buttons">
