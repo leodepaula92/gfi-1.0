@@ -1,11 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title><?php echo htmlspecialchars($pageTitle); ?></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GFI</title>
+  <link rel="stylesheet" href="/public/css/style.css" />
 </head>
 <body>
-    <h1><?php echo htmlspecialchars($message); ?></h1>
-    <p>A reescrita de URL está funcionando!</p>
+  <header>GFI</header>
+
+  <main class="main">
+    <div class="text">
+      <div class="logo">Seja Bem vindo!</div>
+      <div class="subtitle">Clique no botão para ir ao login, e acessar seu perfil.</div>
+    </div>
+
+    <div class="content">
+      <div class="left">
+        <img src="/public/images/logo2.png" alt="Logo GFI" width="250" height="250">
+      </div>
+      <div class="right">
+        <div class="buttons">
+          <button>Acesso Funcionário</button>
+          <button>Acesso Cliente</button>
+          <button>Acesso Adm</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>&copy; 2025 GFI - Todos os direitos reservados.</footer>
 </body>
 </html>
