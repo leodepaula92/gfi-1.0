@@ -6,11 +6,11 @@ session_start();
 $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
 // --- CARREGAMENTO DOS CONTROLLERS ---
-// Caminhos editados para usar letras minúsculas, conforme solicitado
-require_once __DIR__ . '/app/controllers/HomeController.php';
-require_once __DIR__ . '/app/controllers/admin/AuthController.php';
-require_once __DIR__ . '/app/controllers/admin/DashboardController.php';
-require_once __DIR__ . '/app/controllers/admin/UserController.php';
+// Garante que os caminhos usam a pasta 'Controllers' com 'C' maiúsculo
+require_once __DIR__ . '/app/Controllers/HomeController.php';
+require_once __DIR__ . '/app/Controllers/Admin/AuthController.php';
+require_once __DIR__ . '/app/Controllers/Admin/DashboardController.php';
+require_once __DIR__ . '/app/Controllers/Admin/UserController.php';
 
 // --- SISTEMA DE ROTAS ---
 switch ($request_uri) {
