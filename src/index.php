@@ -1,6 +1,5 @@
 <?php
-echo "teste"; 
-/*
+
 // Simples sistema de rotas para o exemplo
 $request_uri = trim($_SERVER['REQUEST_URI'], '/');
 
