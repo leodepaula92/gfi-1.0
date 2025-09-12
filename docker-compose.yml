@@ -2,14 +2,14 @@ version: '3.8'
 
 services:
   gfi-php:
-    image: php:8.2-apache
-    container_name: gfi-php
-    ports:
-      - "80:80"
-    volumes:
-      - ./src:/var/www/html/
-    depends_on:
-      - gfi-mysql
+  build: .  
+  container_name: gfi-php
+  ports:
+    - "80:80"
+  volumes:
+    - ./src:/var/www/html/
+  depends_on:
+    - gfi-mysql
 
   gfi-mysql:
     image: mysql:8.0
