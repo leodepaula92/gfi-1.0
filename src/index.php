@@ -7,10 +7,10 @@ $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
 // --- CARREGAMENTO DOS CONTROLLERS ---
 // Nota: Garanta que sua pasta se chama "Controllers" com 'C' maiúsculo.
-require_once __DIR__ . '/app/Controllers/HomeController.php';
-require_once __DIR__ . '/app/Controllers/Admin/AuthController.php';
-require_once __DIR__ . '/app/Controllers/Admin/DashboardController.php';
-require_once __DIR__ . '/app/Controllers/Admin/UserController.php';
+require_once __DIR__ . '/app/controllers/HomeController.php';
+require_once __DIR__ . '/app/controllers/Admin/AuthController.php';
+require_once __DIR__ . '/app/controllers/Admin/DashboardController.php';
+require_once __DIR__ . '/app/controllers/Admin/UserController.php';
 
 // --- SISTEMA DE ROTAS ---
 // O switch direciona a requisição para o controller e método corretos
