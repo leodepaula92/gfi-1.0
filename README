@@ -1,0 +1,175 @@
+Com certeza! Preparar uma boa documentação é uma das melhores coisas que você pode fazer para seus projetos futuros.
+
+Aqui está um guia completo, passo a passo, para você replicar todo o ambiente em uma nova VPS na AWS.
+
+Guia de Implantação: Projeto PHP/MySQL com Docker e CI/CD na AWS
+Este documento detalha o processo para configurar uma nova instância EC2 (VPS) na AWS, instalar o ambiente necessário e implantar o projeto GFI a partir do repositório do GitHub, incluindo a reconfiguração da automação de deploy (CI/CD).
+
+Fase 1: Criação e Configuração da Instância EC2 (VPS) na AWS
+Esta fase é executada no painel de controle da AWS.
+
+1.1. Lançar a Instância EC2
+
+Acesse o painel do EC2 na AWS e clique em "Launch instances".
+
+Nome: Dê um nome para a instância (ex: gfi-producao-v2).
+
+AMI (Sistema Operacional): Selecione Ubuntu Server (uma versão LTS, como 22.04 LTS, é recomendada).
+
+Tipo de Instância: Selecione t2.micro (geralmente está no Free Tier da AWS).
+
+Par de Chaves (Key pair): Crie um novo par de chaves, dê um nome (ex: chave-vps-gfi-v2), baixe o arquivo .pem e guarde-o em um local seguro no seu computador. Você não poderá baixá-lo novamente.
+
+Configurações de Rede: Clique em "Edit".
+
+1.2. Configurar o Security Group (Firewall da AWS)
+Nesta mesma tela de configurações de rede, vamos criar as regras de firewall.
+
+Selecione "Create a new security group".
+
+Dê um nome ao grupo (ex: gfi-firewall).
+
+Adicione as seguintes Inbound security group rules (Regras de Entrada):
+
+Regra 1 (SSH):
+
+Type: SSH
+
+Source type: My IP (Isso aumenta a segurança, permitindo o acesso ao terminal apenas do seu IP atual).
+
+Regra 2 (HTTP - Site):
+
+Type: HTTP
+
+Source type: Anywhere-IPv4 (Isso permite que qualquer pessoa acesse seu site).
+
+Regra 3 (phpMyAdmin):
+
+Type: Custom TCP
+
+Port range: 8080
+
+Source type: Anywhere-IPv4
+
+Pode manter as outras configurações como padrão e clique em "Launch instance".
+
+1.3. Conectar à Nova Instância via SSH
+
+Após a instância ser criada, copie o seu Public IPv4 address.
+
+No seu computador, use um terminal (Git Bash no Windows) para se conectar, usando a chave .pem que você baixou.
+
+Bash
+
+# Mova a chave para uma pasta segura e ajuste as permissões
+chmod 400 caminho/para/sua-chave.pem
+
+# Conecte-se à VPS
+ssh -i "caminho/para/sua-chave.pem" ubuntu@IP_PUBLICO_DA_NOVA_VPS
+Fase 2: Instalação do Ambiente na Nova VPS
+Estes comandos são executados no terminal da sua nova VPS.
+
+2.1. Atualizar o Sistema
+
+Bash
+
+sudo apt-get update && sudo apt-get upgrade -y
+2.2. Instalar o Git
+
+Bash
+
+sudo apt-get install git -y
+2.3. Instalar o Docker Engine
+
+Bash
+
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+2.4. Instalar o Docker Compose
+
+Bash
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+2.5. Adicionar seu usuário ao grupo do Docker (Opcional, mas recomendado)
+Isso permite que você rode comandos docker sem usar sudo.
+
+Bash
+
+sudo usermod -aG docker ${USER}
+Importante: Após este comando, saia da VPS (exit) e conecte-se novamente via SSH para que a permissão tenha efeito.
+
+Fase 3: Implantação do Projeto
+Agora que o ambiente está pronto, vamos baixar e rodar o projeto.
+
+3.1. Clonar o Repositório do GitHub
+
+Na sua pasta principal (~), clone o projeto. Você precisará de um Personal Access Token (PAT) do GitHub para colar no lugar da senha.
+
+Bash
+
+git clone https://github.com/leodepaula92/gfi-1.0.git meu-projeto-php
+O terminal pedirá seu Username e Password (cole o PAT aqui).
+
+3.2. Iniciar os Contêineres
+
+Entre na pasta do projeto que foi criada:
+
+Bash
+
+cd meu-projeto-php
+Suba os contêineres:
+
+Bash
+
+docker-compose up -d
+3.3. Verificação
+
+Verifique se os contêineres estão rodando:
+
+Bash
+
+docker ps
+(Você deve ver gfi-php, gfi-mysql e gfi-phpmyadmin com status "Up").
+
+Acesse http://IP_PUBLICO_DA_NOVA_VPS no seu navegador para ver o site.
+
+Acesse http://IP_PUBLICO_DA_NOVA_VPS:8080 para ver o phpMyAdmin.
+
+Fase 4: (Opcional) Reconfiguração da Automação (CI/CD) para a Nova VPS
+Se você quer que os git push futuros atualizem esta nova VPS, você precisa atualizar os segredos no GitHub.
+
+4.1. Gerar uma Nova Chave SSH na NOVA VPS
+
+No terminal da nova VPS, gere uma nova chave específica para o deploy:
+
+Bash
+
+# Pressione Enter em tudo, não defina uma senha
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/github-actions-key
+Autorize a nova chave:
+
+Bash
+
+cat ~/.ssh/github-actions-key.pub >> ~/.ssh/authorized_keys
+Exiba a nova chave privada para copiá-la:
+
+Bash
+
+cat ~/.ssh/github-actions-key
+Copie todo o bloco de -----BEGIN... até -----END....
+
+4.2. Atualizar os Secrets no GitHub
+
+Vá para o seu repositório no GitHub > Settings > Secrets and variables > Actions.
+
+Atualize os seguintes segredos com os novos valores:
+
+VPS_HOST: Coloque o IP público da NOVA VPS.
+
+VPS_SSH_PRIVATE_KEY: Apague a chave antiga e cole a chave privada da NOVA VPS que você acabou de copiar.
+
+Com esta documentação, você pode replicar o ambiente de forma rápida e consistente.
