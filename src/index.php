@@ -5,45 +5,46 @@ session_start();
 // Obtém a URL acedida e limpa a string para o roteamento
 $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
-// --- CARREGAMENTO DOS CONTROLLERS ---
-// Garante que os caminhos usam a pasta 'Controllers' com 'C' maiúsculo
-require_once __DIR__ . '/app/controllers/HomeController.php';
-require_once __DIR__ . '/app/controllers/admin/AuthController.php';
-require_once __DIR__ . '/app/controllers/admin/DashboardController.php';
-require_once __DIR__ . '/app/controllers/admin/UserController.php';
-
 // --- SISTEMA DE ROTAS ---
+// Agora, o require_once é feito dentro de cada rota,
+// garantindo que apenas o ficheiro necessário seja carregado.
 switch ($request_uri) {
     // Rota da Página Inicial
     case '':
     case 'home':
+        require_once __DIR__ . '/app/controllers/HomeController.php';
         $controller = new HomeController();
         $controller->index();
         break;
 
     // --- ROTAS DE AUTENTICAÇÃO DO ADMIN ---
     case 'admin/login':
+        require_once __DIR__ . '/app/controllers/admin/AuthController.php';
         $controller = new AuthController();
         $controller->showLoginForm();
         break;
 
     case 'admin/auth': // Rota que recebe os dados do formulário de login
+        require_once __DIR__ . '/app/controllers/admin/AuthController.php';
         $controller = new AuthController();
         $controller->authenticate();
         break;
 
     case 'admin/logout':
+        require_once __DIR__ . '/app/controllers/admin/AuthController.php';
         $controller = new AuthController();
         $controller->logout();
         break;
         
     // --- ROTAS DA ÁREA INTERNA DO ADMIN ---
     case 'admin/dashboard':
+        require_once __DIR__ . '/app/controllers/admin/DashboardController.php';
         $controller = new DashboardController();
         $controller->index();
         break;
     
     case 'admin/usuarios':
+        require_once __DIR__ . '/app/controllers/admin/UserController.php';
         $controller = new UserController();
         $controller->list();
         break;
@@ -54,4 +55,3 @@ switch ($request_uri) {
         echo "<h1>404 - Página não encontrada</h1>";
         break;
 }
-

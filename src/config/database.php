@@ -18,3 +18,4 @@ try {
     // Num ambiente de produção, seria ideal registar este erro em vez de o exibir.
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
+v
