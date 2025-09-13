@@ -102,42 +102,36 @@ footer {
     }
 }
 
-/* Estilo de botão personalizado */
+/* Estilo unificado para os botões de acesso */
 .btn-acesso {
-    background-image: linear-gradient(to right, #005bbb, #003f7f);
-    /* Gradiente de azul */
+    background-color: #014c9b;
+    /* Cor de fundo azul */
     color: white;
     /* Cor do texto branca */
-    padding: 15px 30px;
-    /* Aumenta o espaçamento interno para botões maiores */
+    padding: 12px 25px;
+    /* Espaçamento interno */
     text-align: center;
-    /* Centraliza o texto */
+    /* Centralizar o texto */
     text-decoration: none;
-    /* Remove o sublinhado do link */
-    border-radius: 50px;
-    /* Deixa as bordas bem arredondadas (formato de pílula) */
+    /* Remover sublinhado (para caso use <a>) */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    border: none;
+    /* Remove a borda padrão do botão */
     display: inline-block;
-    /* Permite a aplicação de espaçamento */
     margin-bottom: 10px;
-    /* Aumenta o espaço abaixo de cada botão */
-    font-size: 1.1rem;
-    /* Aumenta o tamanho da fonte */
-    font-weight: bold;
-    /* Deixa o texto em negrito */
-    width: 250px;
-    /* Define uma largura fixa */
-    transition: all 0.3s ease;
-    /* Adiciona uma transição suave para todas as propriedades */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Adiciona uma sombra */
+    /* Espaço abaixo de cada botão */
+    cursor: pointer;
+    /* Mostra a "mãozinha" ao passar o mouse */
+    font-size: 1rem;
+    width: 220px;
+    /* Largura fixa para alinhamento */
+    transition: background-color 0.3s ease;
+    /* Efeito suave na cor */
 }
 
 /* Efeito ao passar o mouse por cima */
 .btn-acesso:hover {
-    transform: translateY(-3px);
-    /* Eleva o botão levemente */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    /* Aumenta a sombra para dar profundidade */
-    background-image: linear-gradient(to right, #0066cc, #004a99);
-    /* Escurece o gradiente */
+    background-color: #0056b3;
+    /* Um azul mais escuro */
 }

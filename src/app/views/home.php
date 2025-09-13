@@ -21,10 +21,16 @@
       </div>
       <div class="right">
         <div class="buttons">
-          <a href="/login-funcionario" class="btn-acesso">Acesso Funcionário</a>
-          <a href="/login-cliente" class="btn-acesso">Acesso Cliente</a>
-          <a href="/login-adm" class="btn-acesso">Acesso Adm</a>
-        </div>
+  <a href="/login-funcionario" class="btn-acesso">Acesso Funcionário</a>
+  <a href="/login-cliente" class="btn-acesso">Acesso Cliente</a>
+  <a href="/login-adm" class="btn-acesso">Acesso Adm</a>
+</div>
+
+<div class="buttons">
+  <button onclick="window.location.href='/login-funcionario'" class="btn-acesso">Acesso Funcionário</button>
+  <button onclick="window.location.href='/login-cliente'" class="btn-acesso">Acesso Cliente</button>
+  <button onclick="window.location.href='/login-adm'" class="btn-acesso">Acesso Adm</button>
+</div>
       </div>
     </div>
   </main>
