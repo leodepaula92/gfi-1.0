@@ -102,34 +102,28 @@ footer {
     }
 }
 
-/* Estilo para os nossos links que devem parecer botões */
-.botao-acesso {
-    /* Propriedades importantes */
-    display: inline-block;
-    /* Permite que o link tenha padding e margin */
-    text-decoration: none;
-    /* Remove o sublinhado do link */
-    text-align: center;
-    cursor: pointer;
-    /* Mostra a "mãozinha" ao passar o rato */
-
-    /* Cole aqui as propriedades visuais do seu <button> original */
-    background-color: #0d6efd;
-    /* Exemplo de azul */
+/* Exemplo de estilo de botão em CSS */
+.btn-acesso {
+    background-color: #007bff;
+    /* Cor de fundo azul */
     color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    font-size: 16px;
-    margin: 8px;
-    /* Espaçamento entre os botões */
-    width: 200px;
-    /* Largura fixa para alinhar */
+    /* Cor do texto branca */
+    padding: 10px 20px;
+    /* Espaçamento interno para parecer maior */
+    text-align: center;
+    /* Centralizar o texto */
+    text-decoration: none;
+    /* Remover o sublinhado do link */
+    border-radius: 5px;
+    /* Deixar as bordas arredondadas */
+    display: inline-block;
+    /* Permitir a aplicação de espaçamento */
+    margin-bottom: 5px;
+    /* Adicionar um espaço abaixo de cada botão */
 }
 
-/* (Opcional) Efeito ao passar o rato por cima */
-.botao-acesso:hover {
-    background-color: #0b5ed7;
-    /* Um azul um pouco mais escuro */
+/* Efeito opcional ao passar o mouse por cima */
+.btn-acesso:hover {
+    background-color: #0056b3;
+    /* Um azul mais escuro */
 }

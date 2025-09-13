@@ -21,9 +21,9 @@
       </div>
       <div class="right">
         <div class="buttons">
-          <a href="/funcionario/login" class="botao-acesso">Acesso Funcionário</a>
-          <a href="/cliente/login" class="botao-acesso">Acesso Cliente</a>
-          <a href="/admin/login" class="botao-acesso">Acesso Adm</a>
+          <a href="/login-funcionario" class="btn-acesso">Acesso Funcionário</a>
+          <a href="/login-cliente" class="btn-acesso">Acesso Cliente</a>
+          <a href="/login-adm" class="btn-acesso">Acesso Adm</a>
         </div>
       </div>
     </div>
