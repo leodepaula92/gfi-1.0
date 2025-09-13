@@ -113,7 +113,7 @@ footer {
     text-align: center;
     /* Centralizar o texto */
     text-decoration: none;
-    /* Remover o sublinhado do link */
+    /* Remover o sublinhado do link (CORRIGIDO) */
     border-radius: 5px;
     /* Deixar as bordas arredondadas */
     display: inline-block;
