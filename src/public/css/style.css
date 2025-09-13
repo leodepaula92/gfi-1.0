@@ -101,3 +101,35 @@ footer {
         gap: 20px;
     }
 }
+
+/* Estilo para os nossos links que devem parecer botões */
+.botao-acesso {
+    /* Propriedades importantes */
+    display: inline-block;
+    /* Permite que o link tenha padding e margin */
+    text-decoration: none;
+    /* Remove o sublinhado do link */
+    text-align: center;
+    cursor: pointer;
+    /* Mostra a "mãozinha" ao passar o rato */
+
+    /* Cole aqui as propriedades visuais do seu <button> original */
+    background-color: #0d6efd;
+    /* Exemplo de azul */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    font-size: 16px;
+    margin: 8px;
+    /* Espaçamento entre os botões */
+    width: 200px;
+    /* Largura fixa para alinhar */
+}
+
+/* (Opcional) Efeito ao passar o rato por cima */
+.botao-acesso:hover {
+    background-color: #0b5ed7;
+    /* Um azul um pouco mais escuro */
+}
