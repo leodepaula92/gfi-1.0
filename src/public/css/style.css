@@ -102,28 +102,42 @@ footer {
     }
 }
 
-/* Exemplo de estilo de botão em CSS */
+/* Estilo de botão personalizado */
 .btn-acesso {
-    background-color: #014c9b;
-    /* Cor de fundo azul */
+    background-image: linear-gradient(to right, #005bbb, #003f7f);
+    /* Gradiente de azul */
     color: white;
     /* Cor do texto branca */
-    padding: 10px 20px;
-    /* Espaçamento interno para parecer maior */
+    padding: 15px 30px;
+    /* Aumenta o espaçamento interno para botões maiores */
     text-align: center;
-    /* Centralizar o texto */
+    /* Centraliza o texto */
     text-decoration: none;
-    /* Remover o sublinhado do link (CORRIGIDO) */
-    border-radius: 5px;
-    /* Deixar as bordas arredondadas */
+    /* Remove o sublinhado do link */
+    border-radius: 50px;
+    /* Deixa as bordas bem arredondadas (formato de pílula) */
     display: inline-block;
-    /* Permitir a aplicação de espaçamento */
-    margin-bottom: 5px;
-    /* Adicionar um espaço abaixo de cada botão */
+    /* Permite a aplicação de espaçamento */
+    margin-bottom: 10px;
+    /* Aumenta o espaço abaixo de cada botão */
+    font-size: 1.1rem;
+    /* Aumenta o tamanho da fonte */
+    font-weight: bold;
+    /* Deixa o texto em negrito */
+    width: 250px;
+    /* Define uma largura fixa */
+    transition: all 0.3s ease;
+    /* Adiciona uma transição suave para todas as propriedades */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Adiciona uma sombra */
 }
 
-/* Efeito opcional ao passar o mouse por cima */
+/* Efeito ao passar o mouse por cima */
 .btn-acesso:hover {
-    background-color: #0056b3;
-    /* Um azul mais escuro */
+    transform: translateY(-3px);
+    /* Eleva o botão levemente */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Aumenta a sombra para dar profundidade */
+    background-image: linear-gradient(to right, #0066cc, #004a99);
+    /* Escurece o gradiente */
 }
