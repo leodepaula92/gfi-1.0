@@ -12,40 +12,39 @@ switch ($request_uri) {
     // Rota da Página Inicial
     case '':
     case 'home':
-        require_once __DIR__ . '/src/app/controllers/HomeController.php';
+        require_once __DIR__ . '/app/controllers/HomeController.php';
         $controller = new HomeController();
         $controller->index();
         break;
 
     // --- ROTAS DE AUTENTICAÇÃO DO ADMIN ---
-    case 'login-adm': // ROTA ADICIONADA PARA COMPATIBILIDADE
     case 'admin/login':
-        require_once __DIR__ . '/src/app/controllers/admin/AuthController.php';
+        require_once __DIR__ . '/app/controllers/admin/AuthController.php';
         $controller = new AuthController();
         $controller->showLoginForm();
         break;
 
     case 'admin/auth': // Rota que recebe os dados do formulário de login
-        require_once __DIR__ . '/src/app/controllers/admin/AuthController.php';
+        require_once __DIR__ . '/app/controllers/admin/AuthController.php';
         $controller = new AuthController();
         $controller->authenticate();
         break;
 
     case 'admin/logout':
-        require_once __DIR__ . '/src/app/controllers/admin/AuthController.php';
+        require_once __DIR__ . '/app/controllers/admin/AuthController.php';
         $controller = new AuthController();
         $controller->logout();
         break;
         
     // --- ROTAS DA ÁREA INTERNA DO ADMIN ---
     case 'admin/dashboard':
-        require_once __DIR__ . '/src/app/controllers/admin/DashboardController.php';
+        require_once __DIR__ . '/app/controllers/admin/DashboardController.php';
         $controller = new DashboardController();
         $controller->index();
         break;
     
     case 'admin/usuarios':
-        require_once __DIR__ . '/src/app/controllers/admin/UserController.php';
+        require_once __DIR__ . '/app/controllers/admin/UserController.php';
         $controller = new UserController();
         $controller->list();
         break;
