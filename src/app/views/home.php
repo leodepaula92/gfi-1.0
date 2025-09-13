@@ -23,8 +23,10 @@
 
 <div class="buttons">
   <button onclick="window.location.href='/login-funcionario'" class="btn-acesso">Acesso Funcionário</button>
+  
   <button onclick="window.location.href='/login-cliente'" class="btn-acesso">Acesso Cliente</button>
-  <button onclick="window.location.href='/login-adm'" class="btn-acesso">Acesso Adm</button>
+
+  <button onclick="window.location.href='/admin/login'" class="btn-acesso">Acesso Adm</button>
 </div>
       </div>
     </div>
