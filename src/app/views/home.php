@@ -20,11 +20,14 @@
         <img src="/public/img/logo2.png" alt="Logo GFI" width="250" height="250">
       </div>
       <div class="right">
-        <div class="buttons">
-          <button>Acesso Funcionário</button>
-          <button>Acesso Cliente</button>
-          <button>Acesso Adm</button>
-        </div>
+
+<div class="buttons">
+  <button onclick="window.location.href='/login-funcionario'" class="btn-acesso">Acesso Funcionário</button>
+  
+  <button onclick="window.location.href='/login-cliente'" class="btn-acesso">Acesso Cliente</button>
+
+  <button onclick="window.location.href='/admin/login'" class="btn-acesso">Acesso Adm</button>
+</div>
       </div>
     </div>
   </main>

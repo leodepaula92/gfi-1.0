@@ -101,3 +101,37 @@ footer {
         gap: 20px;
     }
 }
+
+/* Estilo unificado para os botões de acesso */
+.btn-acesso {
+    background-color: #014c9b;
+    /* Cor de fundo azul */
+    color: white;
+    /* Cor do texto branca */
+    padding: 12px 25px;
+    /* Espaçamento interno */
+    text-align: center;
+    /* Centralizar o texto */
+    text-decoration: none;
+    /* Remover sublinhado (para caso use <a>) */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    border: none;
+    /* Remove a borda padrão do botão */
+    display: inline-block;
+    margin-bottom: 10px;
+    /* Espaço abaixo de cada botão */
+    cursor: pointer;
+    /* Mostra a "mãozinha" ao passar o mouse */
+    font-size: 1rem;
+    width: 220px;
+    /* Largura fixa para alinhamento */
+    transition: background-color 0.3s ease;
+    /* Efeito suave na cor */
+}
+
+/* Efeito ao passar o mouse por cima */
+.btn-acesso:hover {
+    background-color: #0056b3;
+    /* Um azul mais escuro */
+}
