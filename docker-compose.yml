@@ -18,7 +18,7 @@ services:
     environment:
       MYSQL_DATABASE: gfi_database
       MYSQL_USER: user-gfi
-      MYSQL_PASSWORD: "88423313"
+      MYSQL_PASSWORD: "123456"
       MYSQL_ROOT_PASSWORD: "root_password_segura"
     volumes:
       - mysql-data:/var/lib/mysql
